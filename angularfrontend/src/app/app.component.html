@@ -1,0 +1,66 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="col-md-3">
+    <ul class="list-group" *ngIf="categories">
+      <li
+        [ngClass]="currentCategory == c ? 'active' : ''"
+        (click)="getProductsByCat(c)"
+        class="list-group-item"
+        *ngFor="let c of categories"
+      >
+        {{ c.category_name }}
+      </li>
+    </ul>
+    <div *ngIf="currentCategory">
+      <div class="list-group" *ngIf="currentCategory.id >= 1">
+        <p
+          class="list-group-item"
+          style="background-color: rgb(73, 129, 125); text-decoration: white"
+        >
+          Upload Product
+        </p>
+        <div>
+          <p class="list-group-item">{{ currentCategory.name }}</p>
+        </div>
+        <div class="list-group-item" *ngIf="product">
+          <input
+            [(ngModel)]="product.name"
+            class="list-group-item"
+            width="maxWidth"
+          />
+        </div>
+        <div class="list-group-item" *ngIf="product">
+          <input
+            [(ngModel)]="product.currentPrice"
+            class="list-group-item"
+            width="maxWidth"
+          />
+        </div>
+        <div class="list-group-item">
+          <input type="file" (change)="onFileUpload($event)" />
+        </div>
+        <div class="image-preview">
+          <img [src]="imagePreview" width="maxWidth" height="200px" />
+        </div>
+        <div class="list-group-item">
+          <button (click)="UploadProduct()">Upload Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
