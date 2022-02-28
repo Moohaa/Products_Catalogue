@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CatalogueService } from 'src/sevices/catalogue.service';
-import { Product } from 'src/app/resData/productsres';
+import { CatalogueService } from 'src/app/sevices/catalogue.service';
+import { Product } from 'src/app/Models/Product';
 
 import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CatalogueService } from 'src/sevices/catalogue.service';
-import { Category } from 'src/app/resData/model';
+import { CatalogueService } from 'src/app/sevices/catalogue.service';
+import { Category } from 'src/app/Models/Category';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/resData/productsres';
+import { Product } from 'src/app/Models/Product';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
